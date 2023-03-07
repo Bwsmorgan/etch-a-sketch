@@ -1,0 +1,14 @@
+
+.title {
+
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    margin: auto;
+}
+
+.box:hover {
+    background-color: red;
+}
