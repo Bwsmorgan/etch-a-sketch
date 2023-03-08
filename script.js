@@ -17,22 +17,12 @@
             
         }
 
-        function createGrid(x,y) {
-
-                let gridUnits = x*y;
-
-                for (let currentGridUnit = 0; currentGridUnit < gridUnits; currentGridUnit++){
-
-                    buildBox();
-                }     
-        }
-
-        createGrid(16,16);
 
         const modal = document.querySelector('.modal');
         const overlay = document.querySelector('.overlay');
         const openModalBtn = document.querySelector('.btn-open');
         const closeModalBtn = document.querySelector('.btn-close');
+        const submitBtn = document.querySelector('.btn-submit');
 
         const openModal = function () {
 
@@ -50,3 +40,29 @@
         openModalBtn.addEventListener("click", openModal);
         closeModalBtn.addEventListener("click", closeModal);
         overlay.addEventListener("click", closeModal);
+
+        //const gridLength = document.getElementById('length').value;
+        //const gridWidth = document.getElementById('width').value;
+
+        function getVal(){
+
+            closeModal();
+            
+            const gridLength = document.getElementById('length').value;
+            const gridWidth = document.getElementById('width').value;
+            console.log(gridLength)
+            console.log(gridWidth)
+        }
+
+
+        function createGrid(x,y) {
+
+            let gridUnits = x*y;
+
+            for (let currentGridUnit = 0; currentGridUnit < gridUnits; currentGridUnit++){
+
+                buildBox();
+            }     
+        }
+
+        createGrid(16,16);
