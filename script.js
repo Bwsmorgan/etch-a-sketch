@@ -1,5 +1,4 @@
         
-        
         const grid = document.querySelector('.grid-container');
         grid.setAttribute('style', 'border: solid black 1px; height: 512px; width: 512px;');
         const box = document.createElement('div');
@@ -15,19 +14,36 @@
 
             grid.setAttribute('style', `border: solid black 1px; height: 512px; width: 512px; grid-template-columns: repeat(${y}, ${x}`+ `px);`)
 
-            grid.addEventListener('mousedown', function (e) {
-                e.target.style.background = 'black';
-              });
+            
+            grid.addEventListener('mousedown', mouseDown)
+
+            function mouseDown(){
+
+                grid.addEventListener('mousemove', mouseMove)
+                grid.addEventListener('mouseup', mouseUp)
+                
+                function mouseMove(e){
+                    e.target.style.background = 'black';
+                }
+
+                function mouseUp(){
+                    grid.removeEventListener('mousemove',mouseMove)
+                }
+
+            }   
             
         }
+
+
+
+
 
 
         const modal = document.querySelector('.modal');
         const overlay = document.querySelector('.overlay');
         const openModalBtn = document.querySelector('.btn-open');
         const closeModalBtn = document.querySelector('.btn-close');
-        //const submitBtn = document.querySelector('.btn-submit');
-
+    
         const openModal = function () {
 
             modal.classList.remove('hidden');
