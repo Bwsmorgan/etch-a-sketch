@@ -29,9 +29,7 @@
                 function mouseUp(){
                     grid.removeEventListener('mousemove',mouseMove)
                 }
-
             }   
-            
         }
 
 
@@ -69,17 +67,37 @@
         closeModalBtn.addEventListener("click", closeModal);
         overlay.addEventListener("click", closeModal);
 
+
+        function checkVal(glength,gwidth){
+
+            if(glength > 100 || gwidth > 100){
+                
+                const modalFlex = document.querySelector(".flex");
+                const alertMsg = document.createElement('div');
+
+                alertMsg.classList.add('alertMsg');
+                alertMsg.setAttribute('style','display:flex; font-size: 10pt; width: 200px; height:10px; color: green;')
+                alertMsg.textContent = 'Grid cannot exceed value above 100'
+                modalFlex.appendChild(alertMsg)
+            }
+            else{
+
+                reset();
+                //once submit is clicked it should remove the old grid then close the modal
+                closeModal();            
+
+                createGrid(glength,gwidth);
+            }
+        }
+
         function getVals() {
-
-            reset();
-            //once submit is clicked it should remove the old grid then close the modal
-
-            closeModal();            
 
             const gridLength = document.getElementById('length').value;
             const gridWidth = document.getElementById('width').value;
 
-            createGrid(gridLength,gridWidth);
+            checkVal(gridLength,gridWidth)
+
+            
         }
 
 
