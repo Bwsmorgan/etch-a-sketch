@@ -4,14 +4,14 @@
         const box = document.createElement('div');
         
         //this function creates each individual pixel that will collectively constitute the grid in its entirety
-        function buildBox(pixelLength,pixelNum) {
+        function buildBox(pixelLength,numOfPixelsPerSide) {
     
             const box = document.createElement('div');
             box.classList.add('box');
             box.setAttribute('style', 'border: solid black 0.5px;');
             grid.appendChild(box);
 
-            grid.setAttribute('style', `border: solid black 1px; height: 512px; width: 512px; grid-template-columns: repeat(${pixelNum}, ${pixelLength}`+ `px);`)
+            grid.setAttribute('style', `border: solid black 1px; height: 512px; width: 512px; grid-template-columns: repeat(${numOfPixelsPerSide}, ${pixelLength}`+ `px);`)
 
             grid.addEventListener('mousedown', mouseDown)
 
@@ -57,10 +57,12 @@
         })
 
         clearGrid.addEventListener("click", ()=>{
-            reset();
             
-        })
+            document
+              .querySelectorAll(".box")
+              .forEach((e) => e.style.background = 'white');
 
+        })
 
 
         const closeModal = function () {
@@ -73,8 +75,10 @@
         function reset() {
             document
               .querySelectorAll(".box")
-              .forEach((e) => e.style.background = 'white');
-          }
+              .forEach((e) => e.parentNode.removeChild(e));
+        }
+
+
 
 
         openModalBtn.addEventListener("click", ()=>{
@@ -105,7 +109,6 @@
                 reset();
                 //once submit is clicked it should remove the old grid then close the modal
                 closeModal();            
-
                 createGrid(glength);
             }
         }
@@ -113,26 +116,23 @@
         function getVals() {
 
             const gridLength = document.getElementById('length').value;
-            
-
             checkVal(gridLength);
 
-            
         }
 
 
-        function createGrid(length) {
+        function createGrid(gridDimension) {
 
-            let gridUnits = length*length;
-            let unitSize = 512/length;
+            let gridUnits = gridDimension*gridDimension;
+            let unitSize = 512/gridDimension;
 
             for (let currentGridUnit = 0; currentGridUnit < gridUnits; currentGridUnit++){
 
-                buildBox(unitSize,length);
+                buildBox(unitSize,gridDimension);
             }     
 
             document.getElementById('length').value = "";
-            document.getElementById('width').value = "";
+            //document.getElementById('width').value = "";
         }
 
-        createGrid(16,16);
+        createGrid(4);
