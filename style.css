@@ -5,16 +5,19 @@ body {
     justify-content: center;
     position: relative;
     min-height: 100vh;
+    background-color: rgb(26, 175, 175);
+    font-family: 'Pacifico', cursive;
 
 }
 .title {
-
+    margin-top: -5px;
     text-align: center;
 }
 
 .grid-container {
     display: grid;
     margin: auto;
+    background-color: white;
 
 }
 
@@ -41,8 +44,44 @@ body {
     width: 200px;
 }
 
+.btns{
+    display: flex;
+    width: 800px;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.btn-open, .sel-col, .rainbow, .eraser, .clear{
 
-.btn {
+    border-radius: 5%;
+    width: 150px;
+    height: 30px;
+    background-color: white;
+    border: rgb(15, 15, 15) 1.5px solid;
+    color: rgb(15, 15, 15);
+}
+
+
+.btn-open:hover{
+    background-color: rgb(15, 15, 15);
+    color: white;
+
+}
+
+.btn-submit{
+
+    margin-top: 10px;
+    border-radius: 5%;
+    width: 140px;
+    background-color: white;
+    border: rgb(15, 15, 15) 1.5px solid;
+    color: rgb(15, 15, 15);
+
+}
+
+.btn-submit:hover{
+    background-color: rgb(15, 15, 15);
+    color: white;
 
 }
 
@@ -70,3 +109,5 @@ body {
   .hidden {
     display: none;
   }
+
+ 
