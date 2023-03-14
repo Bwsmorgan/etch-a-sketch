@@ -11,24 +11,10 @@
             box.setAttribute('style', 'border: solid black 0.5px;');
             grid.appendChild(box);
 
-            grid.setAttribute('style', `border: solid black 1px; height: 512px; width: 512px; grid-template-columns: repeat(${numOfPixelsPerSide}, ${pixelLength}`+ `px);`)
+            grid.setAttribute('style', `border: solid black 1px; height: 512px; width: 512px; grid-template-columns: repeat(${numOfPixelsPerSide}, ${pixelLength}px);`)
 
             grid.addEventListener('mousedown', mouseDown)
 
-            function mouseDown(e){
-
-                grid.addEventListener('mousemove', mouseMove)
-                grid.addEventListener('mouseup', mouseUp)
-                e.target.style.background = 'black';
-                
-                function mouseMove(e){
-                    e.target.style.background = 'black';
-                }
-
-                function mouseUp(){
-                    grid.removeEventListener('mousemove',mouseMove)
-                }
-            }   
         }
 
 
@@ -42,19 +28,39 @@
         const clearGrid = document.querySelector('.clear');
 
         pickColour.addEventListener("click", ()=>{
+             
+            //let colorPicker: ColorPicker = new ColorPicker({}, '#color-picker');
 
 
         })
 
         rainbow.addEventListener("click", ()=>{
 
-            
+            addEventListener("mousemove", () => {
+
+                let a = Math.floor(Math.random() * 255) + 1
+                let b = Math.floor(Math.random() * 255) + 1
+                let c = Math.floor(Math.random() * 255) + 1
+
+                currentColour = `rgb(${a}, ${b}, ${c})`
+
+            });
         })
 
-        eraser.addEventListener("click", ()=>{
+        // let eraserActive = 0;
+        // eraser.addEventListener("click", ()=>{
 
-            
-        })
+        //     let eraserActive = 1;
+
+        //     grid.addEventListener("click", (e)=>{
+
+        //         eraserActive = 1;
+        //         if (eraserActive){
+        //             e.target.style.background = 'white'
+
+        //         }
+        //     }) 
+        // })
 
         clearGrid.addEventListener("click", ()=>{
             
@@ -135,4 +141,19 @@
             //document.getElementById('width').value = "";
         }
 
+        let currentColour = "black"
+        function mouseDown(e){
+
+            grid.addEventListener('mousemove', mouseMove)
+            grid.addEventListener('mouseup', mouseUp)
+            e.target.style.background = currentColour;
+            
+            function mouseMove(e){
+                e.target.style.background = currentColour;
+            }
+
+            function mouseUp(){
+                grid.removeEventListener('mousemove',mouseMove)
+            }
+        }   
         createGrid(4);
