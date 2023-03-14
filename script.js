@@ -36,31 +36,23 @@
 
         rainbow.addEventListener("click", ()=>{
 
-            addEventListener("mousemove", () => {
+            grid.addEventListener("mousemove", () => {
 
-                let a = Math.floor(Math.random() * 255) + 1
-                let b = Math.floor(Math.random() * 255) + 1
-                let c = Math.floor(Math.random() * 255) + 1
+                let a = Math.floor(Math.random() * 255) + 1;
+                let b = Math.floor(Math.random() * 255) + 1;
+                let c = Math.floor(Math.random() * 255) + 1;
 
-                currentColour = `rgb(${a}, ${b}, ${c})`
+                currentColour = `rgb(${a}, ${b}, ${c})`;
 
             });
         })
 
-        // let eraserActive = 0;
-        // eraser.addEventListener("click", ()=>{
-
-        //     let eraserActive = 1;
-
-        //     grid.addEventListener("click", (e)=>{
-
-        //         eraserActive = 1;
-        //         if (eraserActive){
-        //             e.target.style.background = 'white'
-
-        //         }
-        //     }) 
-        // })
+        eraser.addEventListener("click", ()=>{
+            
+            grid.addEventListener("mousemove", () => {
+            currentColour = "white";
+            })
+        })
 
         clearGrid.addEventListener("click", ()=>{
             
