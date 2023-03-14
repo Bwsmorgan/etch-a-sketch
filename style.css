@@ -10,8 +10,9 @@ body {
 
 }
 .title {
-    margin-top: -5px;
+   
     text-align: center;
+    font-size:55px;
 }
 
 .grid-container {
@@ -42,6 +43,7 @@ body {
     justify-content: space-between;
     height: 100px;
     width: 200px;
+    
 }
 
 .btns{
@@ -49,7 +51,9 @@ body {
     width: 800px;
     gap: 30px;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+   
+
 }
 .btn-open, .sel-col, .rainbow, .eraser, .clear{
 
@@ -59,10 +63,11 @@ body {
     background-color: white;
     border: rgb(15, 15, 15) 1.5px solid;
     color: rgb(15, 15, 15);
+    border-radius: 8px;
 }
 
 
-.btn-open:hover{
+button:hover{
     background-color: rgb(15, 15, 15);
     color: white;
 
@@ -91,6 +96,19 @@ body {
     border: 1px solid white;
     border-radius: 50%;
     background: #eee;
+}
+
+.sel-col {
+    display: flex;
+    justify-content:  center;
+    align-items: center;
+    gap: 5px;    
+}
+
+#color{
+    border: none;
+    background: none;
+    width: 25px;
 }
 
 .overlay {

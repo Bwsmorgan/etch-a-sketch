@@ -22,15 +22,20 @@
         const overlay = document.querySelector('.overlay');
         const openModalBtn = document.querySelector('.btn-open');
         const closeModalBtn = document.querySelector('.btn-close');
-        const pickColour = document.querySelector('.sel-col');
+        const pickColour = document.querySelector('#color');
         const rainbow = document.querySelector('.rainbow');
         const eraser = document.querySelector('.eraser');
         const clearGrid = document.querySelector('.clear');
+    
 
         pickColour.addEventListener("click", ()=>{
-             
-            //let colorPicker: ColorPicker = new ColorPicker({}, '#color-picker');
 
+            grid.addEventListener("mousemove", () => {
+              
+                let myColour = pickColour.value;
+                console.log(myColour);
+                currentColour = myColour;
+            })
 
         })
 
@@ -48,7 +53,7 @@
         })
 
         eraser.addEventListener("click", ()=>{
-            
+
             grid.addEventListener("mousemove", () => {
             currentColour = "white";
             })
