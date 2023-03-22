@@ -57,6 +57,7 @@
             grid.addEventListener("mousemove", () => {
             currentColour = "white";
             })
+    
         })
 
         clearGrid.addEventListener("click", ()=>{
@@ -64,6 +65,7 @@
             document
               .querySelectorAll(".box")
               .forEach((e) => e.style.background = 'white');
+              currentColour = currentColour;
 
         })
 

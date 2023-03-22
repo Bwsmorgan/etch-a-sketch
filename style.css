@@ -6,13 +6,14 @@ body {
     position: relative;
     min-height: 100vh;
     background-color: rgb(26, 175, 175);
-    font-family: 'Pacifico', cursive;
+    
 
 }
 .title {
    
     text-align: center;
     font-size:55px;
+    font-family: 'Pacifico', cursive;
 }
 
 .grid-container {
